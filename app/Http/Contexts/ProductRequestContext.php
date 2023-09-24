@@ -39,7 +39,7 @@ class ProductRequestContext
         return $this->price;
     }
 
-    public function getImage(): int
+    public function getImage(): string
     {
         return $this->image;
     }

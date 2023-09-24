@@ -26,19 +26,19 @@ class ProductRequest extends FormRequest
     {
         return [
             'name' => 'required|string|max:255',
-            'price' => 'required|decimal:2',
-            'image' => [
-                'required',
-                File::image()
-                    ->types(['png', 'jpg', 'jpeg'])
-                    ->min(1024)
-                    ->max(12 * 1024)
-                    ->dimensions(
-                        Rule::dimensions()
-                            ->maxWidth(1000)
-                            ->maxHeight(500)
-                    )
-            ],
+            'price' => 'required|numeric|between:0,9999999999.99',
+//            'image' => [
+//                'required',
+//                File::image()
+//                    ->types(['png', 'jpg', 'jpeg'])
+//                    ->min(1024)
+//                    ->max(12 * 1024)
+//                    ->dimensions(
+//                        Rule::dimensions()
+//                            ->maxWidth(1000)
+//                            ->maxHeight(500)
+//                    )
+//            ],
             'description' => 'string',
             'availability' => 'boolean',
             'category_id' => 'integer|exists:categories,id',
